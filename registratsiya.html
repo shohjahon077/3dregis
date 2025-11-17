@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Registratsiya / Kirish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="card" id="card">
+            
+            <div class="card-face card-face-front">
+                <h2>Kirish</h2>
+                <form id="loginForm">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Parol" required>
+                    <button type="submit">Kirish</button>
+                </form>
+                <p>Hisobingiz yo'qmi? <a href="#" id="showRegister">Ro'yxatdan o'tish</a></p>
+            </div>
+            
+            <div class="card-face card-face-back">
+                <h2>Registratsiya</h2>
+                <form id="registerForm">
+                    <input type="text" placeholder="Ism/Familya" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Parol" required>
+                    <input type="password" placeholder="Parolni takrorlang" required>
+                    <button type="submit">Ro'yxatdan o'tish</button>
+                </form>
+                <p>Hisobingiz bormi? <a href="#" id="showLogin">Kirish</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
