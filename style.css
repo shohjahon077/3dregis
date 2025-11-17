@@ -1,0 +1,126 @@
+/* Asosiy sozlamalar */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b); /* Zamonaviy gradient */
+    perspective: 1000px; /* 3D effekti uchun asos */
+}
+
+/* 3D sahna va kartochka */
+.scene {
+    width: 350px;
+    height: 500px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* 3D transformatsiyalarini saqlash */
+    transition: transform 0.8s; /* Aylanma animatsiyasi */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+}
+
+/* Kartochkaning aylanishi */
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Kartochkaning old va orqa tomoni */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Orqa tomonni yashirish */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1); /* Yarim shaffof (Glassmorphism) */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Orqa fonni xiralashtirish */
+    color: #fff;
+    text-align: center;
+}
+
+.card-face-front {
+    transform: rotateY(0deg);
+}
+
+.card-face-back {
+    transform: rotateY(180deg);
+}
+
+/* Shakl elementlari */
+h2 {
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    box-sizing: border-box;
+    transition: border-bottom-color 0.3s;
+}
+
+input:focus {
+    border-bottom-color: #00bcd4; /* Fokus rangini o'zgartirish */
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    padding: 10px;
+    background: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: #00a0b8;
+    transform: scale(1.02);
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+a {
+    color: #00bcd4;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #fff;
+}
