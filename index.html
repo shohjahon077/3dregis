@@ -2,220 +2,198 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Registratsiya / Kirish Shakli</title>
-    
-    <style>
-        /* =================================
-           1. CSS STYLING (Boshlanish)
-           ================================= */
-
-        /* Asosiy sozlamalar */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b); /* Zamonaviy gradient */
-            perspective: 1000px; /* 3D effekti uchun asos */
-            overflow: hidden; /* Keraksiz scrollni o'chirish */
-        }
-
-        /* 3D sahna va kartochka */
-        .scene {
-            width: 350px;
-            height: 500px;
-        }
-
-        .card {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d; /* 3D transformatsiyalarini saqlash */
-            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); /* Yumshoqroq aylanma animatsiyasi */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Chuqurroq soya */
-            border-radius: 15px;
-        }
-
-        /* Kartochkaning aylanishi */
-        .card.is-flipped {
-            transform: rotateY(180deg);
-        }
-
-        /* Kartochkaning old va orqa tomoni */
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden; /* Orqa tomonni yashirish */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-            box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.1); /* Yarim shaffof (Glassmorphism) */
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px); /* Orqa fonni xiralashtirish */
-            color: #fff;
-            text-align: center;
-        }
-
-        .card-face-front {
-            transform: rotateY(0deg);
-        }
-
-        .card-face-back {
-            transform: rotateY(180deg);
-        }
-
-        /* Shakl elementlari */
-        h2 {
-            margin-bottom: 25px;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border-radius: 5px 5px 0 0;
-            box-sizing: border-box;
-            transition: border-bottom-color 0.3s, background 0.3s;
-        }
-
-        input:focus {
-            border-bottom-color: #00bcd4; /* Fokus rangini o'zgartirish */
-            background: rgba(255, 255, 255, 0.15);
-            outline: none;
-        }
-
-        ::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        button {
-            padding: 12px;
-            background: #00bcd4;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            transition: background 0.3s, transform 0.1s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background: #00a0b8;
-            transform: translateY(-2px);
-        }
-
-        p {
-            margin-top: 25px;
-            font-size: 14px;
-        }
-
-        a {
-            color: #00bcd4;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-        
-        /* =================================
-           2. CSS STYLING (Tugadi)
-           ================================= */
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>AI Life - Bosh Sahifa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="scene">
-        <div class="card" id="card">
-            
-            <div class="card-face card-face-front">
-                <h2>Kirish</h2>
-                <form id="loginForm">
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Parol" required>
-                    <button type="submit">Kirish</button>
-                </form>
-                <p>Hisobingiz yo'qmi? <a href="#" id="showRegister">Ro'yxatdan o'tish</a></p>
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>AI Life</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn notification-btn" onclick="clearNotifications()">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-avatar" onclick="window.location.href='about.html'">
+                        <span>SJ</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="card-face card-face-back">
-                <h2>Registratsiya</h2>
-                <form id="registerForm">
-                    <input type="text" placeholder="Ism/Familya" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Parol" required>
-                    <input type="password" placeholder="Parolni takrorlang" required>
-                    <button type="submit">Ro'yxatdan o'tish</button>
-                </form>
-                <p>Hisobingiz bormi? <a href="#" id="showLogin">Kirish</a></p>
+        </header>
+
+        <main class="main-content">
+            <section class="page active">
+                <div class="page-container">
+                    <div class="hero-section">
+                        <div class="hero-badge">
+                            <i class="fa-solid fa-sparkles"></i>
+                            <span>Yangi Texnologiya</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Kelajakni <br>
+                            <span class="gradient-text">Bugun Kashf Et</span>
+                        </h1>
+                        <p class="hero-description">
+                            Sun'iy intellekt hayotimizni qanday o'zgartirayotganini o'rganing va kelajak texnologiyalari bilan tanishing.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="window.location.href='about-ai.html'">
+                                <i class="fa-solid fa-play"></i>
+                                Boshlash
+                            </button>
+                            <button class="btn btn-outline btn-large" onclick="window.location.href='chatbot.html'">
+                                <i class="fa-solid fa-message"></i>
+                                Suhbat
+                            </button>
+                        </div>
+                        <div class="hero-visual">
+                            <div class="glow-circle glow-1"></div>
+                            <div class="glow-circle glow-2"></div>
+                            <div class="hero-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title">📚 Tez Kirish</h2>
+                            <button class="see-all-btn" onclick="window.location.href='about-ai.html'">
+                                Barchasi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="quick-grid">
+                            <div class="quick-card" onclick="window.location.href='about-ai.html'">
+                                <div class="quick-icon blue">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                                <span class="quick-label">AI Nima?</span>
+                            </div>
+                            <div class="quick-card" onclick="window.location.href='ai-life.html'">
+                                <div class="quick-icon purple">
+                                    <i class="fa-solid fa-house"></i>
+                                </div>
+                                <span class="quick-label">Kundalik</span>
+                            </div>
+                            <div class="quick-card" onclick="window.location.href='chatbot.html'">
+                                <div class="quick-icon cyan">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <span class="quick-label">Chat</span>
+                            </div>
+                            <div class="quick-card" onclick="window.location.href='test.html'">
+                                <div class="quick-icon orange">
+                                    <i class="fa-solid fa-clipboard-check"></i>
+                                </div>
+                                <span class="quick-label">Test</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title">🔥 Ommabop</h2>
+                        </div>
+                        <div class="featured-cards">
+                            <div class="featured-card" onclick="window.location.href='chatbot.html'">
+                                <div class="featured-icon">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div class="featured-content">
+                                    <h3>AI Yordamchi</h3>
+                                    <p>Savollaringizga tez javob oling</p>
+                                </div>
+                                <div class="featured-arrow">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="featured-card" onclick="window.location.href='test.html'">
+                                <div class="featured-icon">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <div class="featured-content">
+                                    <h3>Bilim Testi</h3>
+                                    <p>O'z bilimingizni sinab ko'ring</p>
+                                </div>
+                                <div class="featured-arrow">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-label">Mavzular</div>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <div class="stat-value">1000+</div>
+                                <div class="stat-label">Foydalanuvchi</div>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <div class="stat-value">24/7</div>
+                                <div class="stat-label">Yordam</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-spacer"></div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="window.location.href='index.html'">
+                <div class="nav-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <span class="nav-label">Bosh sahifa</span>
             </div>
-        </div>
+            <div class="nav-item" onclick="window.location.href='about-ai.html'">
+                <div class="nav-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <span class="nav-label">O'rganish</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='chatbot.html'">
+                <div class="nav-icon">
+                    <i class="fa-solid fa-message"></i>
+                </div>
+                <span class="nav-label">Chat</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='test.html'">
+                <div class="nav-icon">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <span class="nav-label">Test</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='about.html'">
+                <div class="nav-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <span class="nav-label">Profil</span>
+            </div>
+        </nav>
     </div>
-
-    <script>
-        // =================================
-        // 3. JAVASCRIPT KODI (Boshlanish)
-        // =================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const card = document.getElementById('card');
-            const showRegister = document.getElementById('showRegister');
-            const showLogin = document.getElementById('showLogin');
-            const loginForm = document.getElementById('loginForm');
-            const registerForm = document.getElementById('registerForm');
-
-            // Registratsiya shakliga o'tish (kartochkani aylantirish)
-            showRegister.addEventListener('click', function(e) {
-                e.preventDefault();
-                card.classList.add('is-flipped');
-            });
-
-            // Kirish shakliga o'tish (kartochkani asl holiga qaytarish)
-            showLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                card.classList.remove('is-flipped');
-            });
-
-            // Kirish shaklini jo'natish (Faqa misol)
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Kirish ma\'lumotlari jo\'natildi! (Real loyihada ma\'lumotlar serverga yuboriladi)');
-                // e.target.reset(); // Shaklni tozalash
-            });
-
-            // Registratsiya shaklini jo'natish (Faqa misol)
-            registerForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Registratsiya ma\'lumotlari jo\'natildi! (Real loyihada ma\'lumotlar serverga yuboriladi)');
-                // e.target.reset(); // Shaklni tozalash
-            });
-        });
-        // =================================
-        // 4. JAVASCRIPT KODI (Tugadi)
-        // =================================
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
