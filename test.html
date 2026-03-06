@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Test - AI Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>Test</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn" onclick="window.location.href='index.html'">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="page active">
+                <div class="page-container">
+                    <div class="quiz-header">
+                        <div class="quiz-title">
+                            <i class="fa-solid fa-clipboard-question"></i>
+                            <h2>Bilim Testi</h2>
+                        </div>
+                        <div class="quiz-info">
+                            <div class="info-badge">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Cheksiz</span>
+                            </div>
+                            <div class="info-badge">
+                                <i class="fa-solid fa-list"></i>
+                                <span id="questionCounter">1/5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quizProgress"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>Boshlash</span>
+                            <span>Tugash</span>
+                        </div>
+                    </div>
+
+                    <div id="quizQuestion" class="question-container">
+                        <div class="question-card">
+                            <div class="question-icon">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </div>
+                            <h3 class="question-text" id="questionText">Savol yuklanmoqda...</h3>
+                            <div class="options-container" id="optionsContainer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quizResult" class="result-container hidden">
+                        <div class="result-card">
+                            <div class="result-icon-wrapper">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <h2 class="result-title">Natija</h2>
+                            <div class="score-display">
+                                <span class="score-value" id="scoreValue">0</span>
+                                <span class="score-total">/ 5</span>
+                            </div>
+                            <p class="result-message" id="resultMessage">Natija</p>
+                            
+                            <div class="result-stats">
+                                <div class="stat-box">
+                                    <div class="stat-number" id="correctCount">0</div>
+                                    <div class="stat-text">To'g'ri</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number" id="wrongCount">0</div>
+                                    <div class="stat-text">Xato</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number" id="percentageValue">0%</div>
+                                    <div class="stat-text">Foiz</div>
+                                </div>
+                            </div>
+
+                            <div class="result-actions">
+                                <button class="btn btn-primary btn-full" onclick="restartQuiz()">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                    Qayta Topshirish
+                                </button>
+                                <button class="btn btn-outline btn-full" onclick="window.location.href='index.html'">
+                                    <i class="fa-solid fa-house"></i>
+                                    Bosh Sahifa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-spacer"></div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item" onclick="window.location.href='index.html'">
+                <div class="nav-icon"><i class="fa-solid fa-house"></i></div>
+                <span class="nav-label">Bosh sahifa</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='about-ai.html'">
+                <div class="nav-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="nav-label">O'rganish</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='chatbot.html'">
+                <div class="nav-icon"><i class="fa-solid fa-message"></i></div>
+                <span class="nav-label">Chat</span>
+            </div>
+            <div class="nav-item active" onclick="window.location.href='test.html'">
+                <div class="nav-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                <span class="nav-label">Test</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='about.html'">
+                <div class="nav-icon"><i class="fa-solid fa-user"></i></div>
+                <span class="nav-label">Profil</span>
+            </div>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
