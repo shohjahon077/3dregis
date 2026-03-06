@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>AI Yordamchi - AI Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>AI Yordamchi</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn" onclick="window.location.href='index.html'">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="page active">
+                <div class="chat-container">
+                    <div class="chat-window" id="chatWindow">
+                        <div class="chat-message bot">
+                            <div class="message-avatar">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    Assalomu alaykum! 👋 Men AI Life yordamchisiman. Sizga qanday yordam bera olaman?
+                                </div>
+                                <div class="message-time">Hozir</div>
+                            </div>
+                        </div>
+                        <div class="chat-message bot">
+                            <div class="message-avatar">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    Men quyidagi mavzularda javob bera olaman:
+                                    <br>• AI nima?
+                                    <br>• AI qayerda ishlatiladi?
+                                    <br>• AI turlari
+                                    <br>• Kelajak haqida
+                                </div>
+                                <div class="message-time">Hozir</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-suggestions">
+                        <button class="suggestion-chip" onclick="quickAsk('AI nima?')">
+                            <i class="fa-solid fa-circle-question"></i>
+                            AI nima?
+                        </button>
+                        <button class="suggestion-chip" onclick="quickAsk('AI qayerda ishlatiladi?')">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Qayerda?
+                        </button>
+                        <button class="suggestion-chip" onclick="quickAsk('Kelajak qanday bo\'ladi?')">
+                            <i class="fa-solid fa-rocket"></i>
+                            Kelajak
+                        </button>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Savolingizni yozing..." autocomplete="off">
+                            <button class="attach-btn">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </button>
+                        </div>
+                        <button class="send-btn" onclick="sendChat()">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item" onclick="window.location.href='index.html'">
+                <div class="nav-icon"><i class="fa-solid fa-house"></i></div>
+                <span class="nav-label">Bosh sahifa</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='about-ai.html'">
+                <div class="nav-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="nav-label">O'rganish</span>
+            </div>
+            <div class="nav-item active" onclick="window.location.href='chatbot.html'">
+                <div class="nav-icon"><i class="fa-solid fa-message"></i></div>
+                <span class="nav-label">Chat</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='test.html'">
+                <div class="nav-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                <span class="nav-label">Test</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='about.html'">
+                <div class="nav-icon"><i class="fa-solid fa-user"></i></div>
+                <span class="nav-label">Profil</span>
+            </div>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
